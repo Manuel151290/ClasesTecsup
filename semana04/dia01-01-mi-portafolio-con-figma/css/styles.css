@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* CUSTOM PROPERTIES <> VARIABLES */
+
+:root {
+  /* FONTS */
+  --font-family: "Poppins", serif;
+  --font-size: 16px;
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* COLORS */
+
+  --primary-color-gold: #FFB742;
+  --primary-color-blue1: #393646;
+  --primary-color-blue2: #4F4557;
+  --primary-color-blue3: #6D5D6E;
+  --primary-color-white: #FFFFFF;
+}
+
+/* GENERAL */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: var(--font-size);
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--primary-color-blue2);
+  color: var(--primary-color-white);
+
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* UTILS */
+
+.wrapper {
+  width: min(100% - 3rem, 1220px);
+  margin: 0 auto;
+}
+
+/* HEADER */
+
+.header {
+  /* border: 1px solid red; */
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 2rem;
+}
+
+.header__logo {
+  color: var(--primary-color-gold);
+  font-size: 2rem;
+  font-weight: var(--font-weight-bold);
+}
+
+.header__menu {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .header__menu {
+    display: flex;
+    gap: 1.5rem; /* 1.5 * 16px = 24px */
+    text-transform: capitalize;
+  }
+}
+
+.header__menu a {
+  font-size: 1.125rem; /* 18px / 16px = 1.125rem */
+  font-weight: var(--font-weight-bold);
+}
+
+.header__menu--active {
+  color: var(--primary-color-gold);
+  border-bottom: 3px solid var(--primary-color-gold);
+}
+
+.header__menu a:hover {
+  color: var(--primary-color-gold);
+}
+
+.header__links {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+} 
+
+/* TODO: Terminar la sección hero usando css */
+
+/* HERO SECTION */
+
+.hero {
+  /* border: 1px solid red; */
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+
+  padding: 2rem;
+
+  background-image: url(../images/bg.svg);
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: contain;
+}
+
+.hero__gretting {
+  font-size: 2rem;
+  font-weight: var(--font-weight-bold);
+  text-transform: capitalize;
+
+  margin: 0;
+}
+
+.hero__gretting span {
+  color: var(--primary-color-gold);
+  text-decoration: underline;
+}
+
+.hero__title {
+  font-size: 3rem; /* 48px / 16px = 3rem */
+  font-weight: var(--font-weight-bold);
+  text-transform: capitalize;
+
+  margin: 0;
+}
+
+.hero__description {
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-regular);
+  text-transform: capitalize;
+
+  margin: 0;
+}
+
+.hero__photo {
+  border-radius: 50%;
+}
+
+/* STACK SECTION */
+
+.stack {
+  /* border: 1px solid red; */
+
+  display: grid;
+  gap: 1.5rem;
+  /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; */
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (min-width: 768px) {
+  .stack {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.stack__wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stack__title {
+  font-size: 1rem;
+}
+
+.stack__box {
+  /* border: 1px solid yellow; */
+
+  width: 7rem; /* 7rem * 16px = 112px */
+  height: 7rem; /* 7rem * 16px = 112px */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--primary-color-blue2);
+  border-radius: 0.5rem;
+}
+
+/* SKILLS SECTION */
+
+/* TODO: terminar esta parte de la maquetación para el próximo jueves 9/01/25 */
+
+.skills {
+  border: 1px solid red;
+}
+
+/* PROJECTS SECTION */
+
+/* TODO: terminar esta parte de la maquetación para el próximo jueves 9/01/25 */
+
+/* FOOTER */
+
+.footer {
+  /* border: 1px solid red; */
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 3rem;
+
+  height: 372px;
+
+  background-image: url(../images/bg.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+}
+
+.footer__logo {
+  color: var(--primary-color-gold);
+  font-size: 2rem;
+  font-weight: var(--font-weight-bold);
+}
+
+.footer__copy {
+  font-size: var(--font-size);
+  font-weight: var(--font-weight-semibold);
+  padding-bottom: 3.5rem;
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Results summary component</title>
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+  <!-- TODO: Maquetar en HTML el diseño de este reto -->
+  <main class="summary wrapper">
+    <section class="result">
+      <h3 class="result__subtitle">Your Result</h3>
+      
+      <div class="result__stats">
+        <h1>76</h1>
+        <small>of 100</small>
+      </div>
+
+      <h2 class="result__title">Great</h2>
+      <p class="result__text">You scored higher than 65% of the people who have taken these tests.</p>
+    </section>
+    
+    <section class="list">
+      <h3 class="list__title">Summary</h3>
+
+      <div class="list__wrapper">
+
+        <div class="list__row list__row--reaction">
+          <div class="list-row__title">
+            <img src="./assets/images/icon-reaction.svg" alt="reaction icon" />
+            Reaction
+          </div>
+          <div class="list-row__stats">
+            <span>80</span>
+            <span>/</span>
+            <span>100</span>
+          </div>
+        </div>
+
+        <div class="list__row list__row--memory">
+          <div class="list-row__title">
+            <img src="./assets/images/icon-memory.svg" alt="memory icon" />
+            Memory
+          </div>
+          <div class="list-row__stats">
+            <span>92</span>
+            <span>/</span>
+            <span>100</span>
+          </div>
+        </div>
+
+        <div class="list__row list__row--verbal">
+          <div class="list-row__title">
+            <img src="./assets/images/icon-verbal.svg" alt="verbal icon" />
+            Verbal
+          </div>
+          <div class="list-row__stats">
+            <span>61</span>
+            <span>/</span>
+            <span>100</span>
+          </div>
+        </div>
+
+        <div class="list__row list__row--visual">
+          <div class="list-row__title">
+            <img src="./assets/images/icon-visual.svg" alt="visual icon" />
+            Visual
+          </div>
+          <div class="list-row__stats">
+            <span>72</span>
+            <span>/</span>
+            <span>100</span>
+          </div>
+        </div>
+      </div>
+
+      <button class="list__button">Continue</button>
+    </section>
+  </main>
+</body>
+</html>

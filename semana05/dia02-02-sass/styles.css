@@ -1,0 +1,29 @@
+body {
+  background-color: #FFA559;
+  color: blue;
+  text-align: center;
+}
+
+.card {
+  background-color: #e8e8e8;
+  border: 3px solid #454545;
+  border-radius: 8px;
+  border: 5px solid blue;
+  border: 8px dashed orangered;
+  text-align: left;
+  color: #333333;
+}
+.card__header {
+  padding: 1rem 1.5rem;
+  border-bottom: 3px solid #454545;
+}
+.card__title {
+  font-weight: 600;
+}
+.card__body {
+  padding: 1rem 1.5rem;
+  min-height: 80px;
+}
+.card--success {
+  background-color: #DDEEAA;
+}/*# sourceMappingURL=styles.css.map */
