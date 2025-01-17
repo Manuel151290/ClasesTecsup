@@ -1,22 +1,218 @@
-/* TODO: Terminar la maquetación propuesta del diseño usando CSS */
-
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
 
 /* VARIABLES */
-
 :root {
   /* FONTS */
-
-  --font-primary: 'Space Mono', monospace;;
+  --font-primary: 'Space Mono', monospace;
   --font-size: 16px;
   --font-weight-regular: 400;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
 
   /* COLORS */
-
   --dark-blue-1: #141c2f;
   --dark-blue-2: #1f2a48;
   --light-blue: #0079fe;
   --white: #FFFFFF;
+}
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-primary);
+  font-size: var(--font-size);
+  font-weight: var(--font-weight-regular);
+  background-color: var(--dark-blue-1);
+  color: var(--white);
+}
+
+.wrapper {
+  max-width: 730px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+/* HEADER */
+.profile__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.profile__logo {
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-bold);
+}
+
+.profile__mode {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+  font-weight: var(--font-weight-bold);
+  background: none;
+  border: none;
+  color: var(--white);
+  cursor: pointer;
+}
+
+.profile__mode img {
+  width: 20px;
+  height: 20px;
+}
+
+/* SEARCH BAR */
+.profile__form {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.profile__label {
+  position: relative;
+  flex: 1;
+}
+
+.profile__icon-search {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+}
+
+.profile__input-text {
+  width: 100%;
+  padding: 10px 10px 10px 40px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--dark-blue-2);
+  color: var(--white);
+  font-size: 1rem;
+}
+
+.profile__input-text::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.profile__input-submit {
+  padding: 10px 20px;
+  background-color: var(--light-blue);
+  border: none;
+  border-radius: 8px;
+  color: var(--white);
+  font-weight: var(--font-weight-bold);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.profile__input-submit:hover {
+  background-color: rgba(0, 121, 254, 0.8);
+}
+
+/* PROFILE CARD */
+.profile__info {
+  background-color: var(--dark-blue-2);
+  padding: 30px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.profile__info img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.profile__content {
+  flex: 1;
+}
+
+.profile__user {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.profile__fullname {
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-bold);
+}
+
+.profile__joined-date {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.profile__username {
+  font-size: 1rem;
+  color: var(--light-blue);
+  margin-top: 5px;
+}
+
+.profile__bio {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* PROFILE DATA */
+.profile__data {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--dark-blue-1);
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.profile__value {
+  flex: 1;
+}
+
+.profile__value span {
+  display: block;
+  font-size: 1.25rem;
+  font-weight: var(--font-weight-bold);
+}
+
+.profile__value:first-child {
+  text-align: left;
+}
+
+.profile__value:last-child {
+  text-align: right;
+}
+
+/* PROFILE LINKS */
+.profile__links {
+  display: grid;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.profile__link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile__link img {
+  width: 20px;
+  height: 20px;
+}
+
+.profile__link--unavailable {
+  color: rgba(255, 255, 255, 0.5);
 }
