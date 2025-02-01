@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Word Counter + Javascript</title>
+  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+<body class="h-screen place-content-center">
+  <!--
+    TODO: Terminar esta aplicación usando javascript para el viernes.
+    Necesitamos actualizar el contador de caracteres, palabras y párrafos según escribamos en la caja de texto.
+  -->
+
+  <main class="w-80 mx-auto bg-yellow-200 rounded-lg p-4">
+    <h1 class="text-3xl text-center">Word Counter</h1>
+
+    <section class="flex justify-between py-4">
+      <div class="flex flex-col gap-2 items-center">
+        <span class="text-sm">Characters</span>
+        <span class="text-3xl">0</span>
+      </div>
+      <div class="flex flex-col gap-2 items-center">
+        <span class="text-sm">Words</span>
+        <span class="text-3xl">0</span>
+      </div>
+      <div class="flex flex-col gap-2 items-center">
+        <span class="text-sm">Paragraphs</span>
+        <span class="text-3xl">0</span>
+      </div>
+    </section>
+
+    <textarea
+      class="w-full min-h-40 max-h-52 p-2 border border-yellow-600 rounded-lg resize-none field-sizing-content"
+    ></textarea>
+  </main>
+
+  <script src="./main.js"></script>
+</body>
+</html>
