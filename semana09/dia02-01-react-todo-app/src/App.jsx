@@ -2,6 +2,7 @@ import { useState } from "react"
 import TodoHeader from "./components/TodoHeader"
 import TodoList from "./components/TodoList"
 import TodoForm from "./components/TodoForm"
+import TodoStats from "./components/TodoStats"
 
 const App = () => {
   const DEFAULT_TODOS = [
@@ -59,6 +60,12 @@ const App = () => {
     setTodos([...todos, newTodo])
   }
  
+  const handleClearCompletedTodos = () => {
+    const incompletedTodos = todos.filter(todo => !todo.completed)
+
+    setTodos(incompletedTodos)
+  }
+
   return (
     <main
       className="bg-yellow-100 w-[400px] mx-auto mt-10 border border-yellow-400 rounded-lg shadow-lg p-4"
@@ -69,11 +76,32 @@ const App = () => {
         onSubmit={handleSubmit}
       />
 
-      <TodoList
-        todos={todos}
-        onCompleted={handleCompleted}
-        onRemoveTodo={handleRemoveTodo}
-      />
+      {/* TODO: 03 - Añadir una estadística de cuantas tareas estan completadas y el total de tareas. */}
+
+      {/* Renderizado condicional */}
+
+      {
+        todos.length > 0
+          ? (
+            <>
+              <TodoStats
+                todos={todos}
+                onClearCompletedTodos={handleClearCompletedTodos}
+              />
+              <TodoList
+                todos={todos}
+                onCompleted={handleCompleted}
+                onRemoveTodo={handleRemoveTodo}
+              />
+            </>
+
+          )
+          : (
+            <div className="text-center font-medium text-gray-500">
+              Agrega más tareas en la parte superior.
+            </div>
+          )
+      }
 
       <pre className="bg-slate-100 p-4 mt-8">{JSON.stringify(todos, null, 2)}</pre>
     </main>
