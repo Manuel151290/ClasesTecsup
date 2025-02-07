@@ -1,6 +1,7 @@
 import { useState } from "react"
 import TodoHeader from "./components/TodoHeader"
 import TodoList from "./components/TodoList"
+import TodoForm from "./components/TodoForm"
 
 const App = () => {
   const DEFAULT_TODOS = [
@@ -53,12 +54,20 @@ const App = () => {
 
     setTodos(updatedTodos)
   }
+
+  const handleSubmit = (newTodo) => {
+    setTodos([...todos, newTodo])
+  }
  
   return (
     <main
       className="bg-yellow-100 w-[400px] mx-auto mt-10 border border-yellow-400 rounded-lg shadow-lg p-4"
     >
       <TodoHeader title='TODO APP + React + Tailwind' color='text-blue-500' />
+
+      <TodoForm
+        onSubmit={handleSubmit}
+      />
 
       <TodoList
         todos={todos}
