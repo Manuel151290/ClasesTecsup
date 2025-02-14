@@ -1,10 +1,19 @@
 import { TbEdit, TbTrash } from "react-icons/tb";
 import Avatar from 'boring-avatars'
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import {
+  createStudent,
+  fetchStudents,
+  removeStudent,
+  updateStudent
+} from "./services/students";
+import Swal from 'sweetalert2'
+import { Toaster, toast } from 'sonner'
 
 // TODO: Reto 2 - Persistir los datos de los estudiantes en localstorage
 
 const App = () => {
+
   // const DEFAULT_STUDENTS = [
     // {
     //   id: '1',
@@ -29,13 +38,17 @@ const App = () => {
     city: ''
   }
 
-  const [students, setStudents] = useState(() => {
-    const localStorageStudents = JSON.parse(localStorage.getItem('STUDENTS') ?? '[]')
-    console.log(localStorageStudents)
-    return localStorageStudents
-  })
+  const [students, setStudents] = useState([])
 
   const [form, setForm] = useState(DEFAULT_FORM)
+
+  // Nos ayuda a controlar el ciclo de vida de un componente
+  // CREACIÓN, ACTUALIZACIÓN Y ELIMINACIÓN DEL COMPONENTE
+  useEffect(() => {
+    console.log('useEffect')
+    fetchStudents()
+      .then(setStudents)
+  }, []) // Se ejecuta el useEffect al cargar el componente la primera vez con el []
 
   const handleChange = (event) => {
     // console.log({ input: event.target })
@@ -53,53 +66,95 @@ const App = () => {
 
   // TODO: Reto 1 - Guardar un nuevo studiante en el estado students manejando el formulario.
 
-  const handleSave = (event) => {
+  const handleSave = async (event) => {
     event.preventDefault();
 
     const isNewStudent = form.id === ''
     
     if (isNewStudent) {
       const newStudent = {
-        id: crypto.randomUUID(),
+        // id: crypto.randomUUID(),
         name: form.name,
         city: form.city
       }
 
-      const updatedStudents = [...students, newStudent]
+      const response = await createStudent(newStudent)
 
-      setStudents(updatedStudents)
+      console.log(response)
 
-      localStorage.setItem('STUDENTS', JSON.stringify(updatedStudents))
+      const dataStudents = await fetchStudents()
+
+      setStudents(dataStudents)
+
+      toast.success('Student has been created')
+
+      // const updatedStudents = [...students, newStudent]
+      // setStudents(updatedStudents)
+      // localStorage.setItem('STUDENTS', JSON.stringify(updatedStudents))
     } else {
+      // TODO: Enviar una petición para actualiar un estudiante
+
+      const response = await updateStudent(form)
+
+      console.log(response)
+
+      const dataStudents = await fetchStudents()
+
+      setStudents(dataStudents)
+
+      toast.success('Student has been updated')
+
       // Update Student
-      const updatedStudents = students.map(student => {
-        if (student.id === form.id) {
-          return {
-            ...student,
-            name: form.name,
-            city: form.city
-          }
-        }
+      // const updatedStudents = students.map(student => {
+      //   if (student.id === form.id) {
+      //     return {
+      //       ...student,
+      //       name: form.name,
+      //       city: form.city
+      //     }
+      //   }
 
-        return student
-      })
+      //   return student
+      // })
 
-      setStudents(updatedStudents)
+      // setStudents(updatedStudents)
 
-      localStorage.setItem('STUDENTS', JSON.stringify(updatedStudents))
+      // localStorage.setItem('STUDENTS', JSON.stringify(updatedStudents))
     }
 
     setForm(DEFAULT_FORM)
   }
 
-  const handleRemove = (id) => {
+  const handleRemove = async (id) => {
+    // TODO: Enviar una petición para eliminar un estudiante
+
     console.log('Deleting student', id)
 
-    const updatedStudents = students.filter(student => student.id !== id)
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        const response = await removeStudent(id)
 
-    setStudents(updatedStudents)
+        console.log(response)
 
-    localStorage.setItem('STUDENTS', JSON.stringify(updatedStudents))
+        toast.success('Student has been deleted')
+
+        const dataStudents = await fetchStudents()
+
+        setStudents(dataStudents)
+      }
+    });
+
+    // const updatedStudents = students.filter(student => student.id !== id)
+    // setStudents(updatedStudents)
+    // localStorage.setItem('STUDENTS', JSON.stringify(updatedStudents))
   }
 
   // Opción 1: Update 🥺
@@ -118,6 +173,7 @@ const App = () => {
 
   return (
     <main className="w-96 mx-auto border rounded-lg mt-6 p-3">
+      <Toaster richColors position="top-right" />
       <h1 className="text-2xl font-semibold text-center mb-3">Student List - CRUD</h1>
 
       <form
