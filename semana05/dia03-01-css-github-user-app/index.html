@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Github User Search App</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="profile wrapper">
+    <header class="profile__header">
+      <span class="profile__logo">devfinder</span>
+
+      <button class="profile__mode profile__mode--dark">
+        <span class="mode-dark">Light</span>
+        <span class="mode-ligth">Dark</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-brightness-up mode-dark"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 8a4 4 0 1 1-3.995 4.2L8 12l.005-.2A4 4 0 0 1 12 8zM12 2a1 1 0 0 1 .993.883L13 3v2a1 1 0 0 1-1.993.117L11 5V3a1 1 0 0 1 1-1zM17.693 4.893a1 1 0 0 1 1.497 1.32l-.083.094-1.4 1.4a1 1 0 0 1-1.497-1.32l.083-.094 1.4-1.4zM21 11a1 1 0 0 1 .117 1.993L21 13h-2a1 1 0 0 1-.117-1.993L19 11h2zM16.293 16.293a1 1 0 0 1 1.32-.083l.094.083 1.4 1.4a1 1 0 0 1-1.32 1.497l-.094-.083-1.4-1.4a1 1 0 0 1 0-1.414zM12 18a1 1 0 0 1 .993.883L13 19v2a1 1 0 0 1-1.993.117L11 21v-2a1 1 0 0 1 1-1zM6.293 16.293a1 1 0 0 1 1.497 1.32l-.083.094-1.4 1.4a1 1 0 0 1-1.497-1.32l.083-.094 1.4-1.4zM6 11a1 1 0 0 1 .117 1.993L6 13H4a1 1 0 0 1-.117-1.993L4 11h2zM4.893 4.893a1 1 0 0 1 1.32-.083l.094.083 1.4 1.4a1 1 0 0 1-1.32 1.497l-.094-.083-1.4-1.4a1 1 0 0 1 0-1.414z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-moon  mode-ligth"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 1.992a10 10 0 1 0 9.236 13.838c.341-.82-.476-1.644-1.298-1.31a6.5 6.5 0 0 1-6.864-10.787l.077-.08c.551-.63.113-1.653-.758-1.653h-.266l-.068-.006-.06-.002z"/></svg>
+      </button>
+    </header>
+
+    <search class="profile__search">
+      <form class="profile__form">
+        <label class="profile__label">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="icon icon-tabler icons-tabler-outline icon-tabler-search profile__icon-search"><path stroke="none" d="M0 0h24v24H0z"/><path d="M3 10a7 7 0 1 0 14 0 7 7 0 1 0-14 0M21 21l-6-6"/></svg>
+          <input class="profile__input-text" type="text" placeholder="Search github username..." autofocus />
+        </label>
+        <input class="profile__input-submit" type="submit" value="Search" />
+      </form>
+    </search>
+
+    <section class="profile__info">
+      <img src="https://placehold.co/120x120" />
+
+      <div class="profile__content">
+        <div class="profile__user">
+          <h1 class="profile__fullname">The Octocat</h1>
+          <span class="profile__joined-date">Joined 10 Jan 2025</span>
+        </div>
+
+        <span class="profile__username">@octocat</span>
+
+        <p class="profile__bio">This profile has no bio</p>
+      </div>
+
+      <div class="profile__data">
+        <div class="profile__value">
+          Repos
+          <span>8</span>
+        </div>
+        <div class="profile__value">
+          Followers
+          <span>3938</span>
+        </div>
+        <div class="profile__value">
+          Following
+          <span>9</span>
+        </div>
+      </div>
+
+      <div class="profile__links">
+        <div class="profile__link">
+          <img src="./images/icon-map-pin.svg" />
+          San Francisco
+        </div>
+        <div class="profile__link profile__link--unavailable">
+          <img src="./images/brand-x.svg" />
+          Not Available
+        </div>
+        <div class="profile__link">
+          <img src="./images/icon-link.svg" />
+          https://github.blog
+        </div>
+        <div class="profile__link">
+          <img src="./images/icon-buildings.svg" />
+          @github
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
